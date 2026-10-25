@@ -21,6 +21,20 @@ function FuelValue.parse_fuel_value(energy, parse_energy)
   return parse_energy(energy)
 end
 
+--- Tells whether an item prototype's `fuel_value` makes it burn.
+---
+--- An unset value and an explicit "0J" both mean the item does not burn, since zero is the
+--- prototype default. Anything else was set on purpose by some mod and should be left alone.
+---@param energy string|nil  the item's `fuel_value`, e.g. "3MJ"
+---@param parse_energy function  `util.parse_energy` from `__core__/lualib/util`
+---@return boolean
+function FuelValue.has_fuel_value(energy, parse_energy)
+  if energy == nil then
+    return false
+  end
+  return FuelValue.parse_fuel_value(energy, parse_energy) > 0
+end
+
 --- Formats joules as a Factorio energy string.
 ---
 --- Always uses plain joules so no precision is lost to a unit prefix.

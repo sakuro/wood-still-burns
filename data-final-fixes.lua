@@ -20,6 +20,8 @@ elseif recovery_rate > 0 then
     end
     if item == nil or wood_amount == nil then
       log("wood-still-burns: skipping " .. item_name .. " (item or recipe not usable)")
+    elseif FuelValue.has_fuel_value(item.fuel_value, util.parse_energy) then
+      log("wood-still-burns: skipping " .. item_name .. " (already has a fuel value)")
     else
       item.fuel_categories = wood.fuel_categories
       item.fuel_value =

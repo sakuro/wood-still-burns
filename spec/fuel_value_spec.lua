@@ -28,6 +28,30 @@ describe("FuelValue", function()
     end)
   end)
 
+  describe("has_fuel_value", function()
+    local function fake_parse_energy(energy)
+      return tonumber((energy:gsub("J$", "")))
+    end
+
+    it("is false when no fuel value is set", function()
+      assert.is_false(FuelValue.has_fuel_value(nil, fake_parse_energy))
+    end)
+
+    it("is false for an explicit zero", function()
+      assert.is_false(FuelValue.has_fuel_value("0J", fake_parse_energy))
+    end)
+
+    it("is true for a positive fuel value", function()
+      assert.is_true(FuelValue.has_fuel_value("3000000J", fake_parse_energy))
+    end)
+
+    it("rejects a value that is not an energy in joules", function()
+      assert.has_error(function()
+        FuelValue.has_fuel_value("2MW", fake_parse_energy)
+      end)
+    end)
+  end)
+
   describe("format_energy", function()
     it("writes plain joules", function()
       assert.are.equal("3000000J", FuelValue.format_energy(3e6))
