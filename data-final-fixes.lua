@@ -1,4 +1,5 @@
 local FuelValue = require("lib.fuel_value")
+local util = require("util")
 
 -- Items whose main material is wood. Each one's fuel value is derived from its own recipe.
 local WOODEN_ITEMS = { "wooden-chest", "small-electric-pole" }
@@ -11,7 +12,7 @@ local recovery_rate = settings.startup[FuelValue.RECOVERY_RATE_SETTING].value
 if wood == nil or wood.fuel_value == nil then
   log("wood-still-burns: wood has no fuel value; nothing to do")
 elseif recovery_rate > 0 then
-  local wood_joules = FuelValue.parse_energy(wood.fuel_value)
+  local wood_joules = FuelValue.parse_fuel_value(wood.fuel_value, util.parse_energy)
   for _, item_name in ipairs(WOODEN_ITEMS) do
     local item = data.raw.item[item_name]
     local recipe = data.raw.recipe[item_name]

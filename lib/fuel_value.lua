@@ -2,33 +2,23 @@ local FuelValue = {}
 
 FuelValue.RECOVERY_RATE_SETTING = "wood-still-burns-energy-recovery-rate"
 
-local UNIT_MULTIPLIERS = {
-  [""] = 1,
-  k = 1e3,
-  M = 1e6,
-  G = 1e9,
-  T = 1e12,
-  P = 1e15,
-  E = 1e18,
-  Z = 1e21,
-  Y = 1e24,
-}
-
---- Converts a Factorio energy string such as "2MJ" to joules.
+--- Converts a Factorio fuel value string such as "2MJ" to joules.
 ---
---- Prototypes express `fuel_value` as a string with an SI prefix, so the arithmetic
---- has to go through a plain number first.
----@param energy string  e.g. "2MJ", "100kJ", "1.5MJ"
+--- The conversion itself is the game's `util.parse_energy`, passed in so this module
+--- stays loadable outside Factorio. That function also accepts power ("W") and
+--- scales it to joules per tick, which is not a valid `fuel_value`, so only strings
+--- ending in "J" are handed to it.
+---@param energy string  e.g. "2MJ", "100kJ"
+---@param parse_energy function  `util.parse_energy` from `__core__/lualib/util`
 ---@return number
-function FuelValue.parse_energy(energy)
+function FuelValue.parse_fuel_value(energy, parse_energy)
   if type(energy) ~= "string" then
     error("energy must be a string, got " .. type(energy), 2)
   end
-  local amount, prefix = energy:match("^(%d+%.?%d*)([kMGTPEZY]?)J$")
-  if amount == nil then
-    error("invalid energy string: " .. energy, 2)
+  if energy:sub(-1) ~= "J" then
+    error("fuel value must be an energy in joules: " .. energy, 2)
   end
-  return tonumber(amount) * UNIT_MULTIPLIERS[prefix]
+  return parse_energy(energy)
 end
 
 --- Formats joules as a Factorio energy string.

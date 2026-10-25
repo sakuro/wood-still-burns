@@ -1,26 +1,29 @@
 local FuelValue = require("lib.fuel_value")
 
 describe("FuelValue", function()
-  describe("parse_energy", function()
-    it("applies SI prefixes", function()
-      assert.are.equal(2e6, FuelValue.parse_energy("2MJ"))
-      assert.are.equal(100e3, FuelValue.parse_energy("100kJ"))
-      assert.are.equal(1.5e6, FuelValue.parse_energy("1.5MJ"))
-      assert.are.equal(30, FuelValue.parse_energy("30J"))
+  describe("parse_fuel_value", function()
+    local function fake_parse_energy(energy)
+      return { energy = energy }
+    end
+
+    it("delegates joule strings to the given parser", function()
+      assert.are.same({ energy = "2MJ" }, FuelValue.parse_fuel_value("2MJ", fake_parse_energy))
     end)
 
-    it("rejects malformed strings", function()
+    it("rejects power before calling the parser", function()
+      local called = false
+      local function parse_energy()
+        called = true
+      end
       assert.has_error(function()
-        FuelValue.parse_energy("2MW")
+        FuelValue.parse_fuel_value("2MW", parse_energy)
       end)
-      assert.has_error(function()
-        FuelValue.parse_energy("MJ")
-      end)
+      assert.is_false(called)
     end)
 
     it("rejects non-strings", function()
       assert.has_error(function()
-        FuelValue.parse_energy(2000000)
+        FuelValue.parse_fuel_value(2000000, fake_parse_energy)
       end)
     end)
   end)
