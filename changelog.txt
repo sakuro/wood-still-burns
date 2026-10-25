@@ -1,4 +1,4 @@
 ---------------------------------------------------------------------------------------------------
 Version: Unreleased
-Features:
-  - Initial release
+  Features:
+    - Initial release
