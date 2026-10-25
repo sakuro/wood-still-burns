@@ -4,6 +4,8 @@ Wood Still Burns derives a fuel value for items whose recipe uses wood. Other mo
 
 ## Registration
 
+Example: a mod that makes Krastorio 2's basic tech card burnable.
+
 ```lua
 data:extend({
   {
