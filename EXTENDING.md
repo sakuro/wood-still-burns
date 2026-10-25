@@ -1,25 +1,27 @@
-# Registering wooden items
+# Writing an adapter mod
 
-Wood Still Burns derives a fuel value for items whose recipe uses wood. Other mods can add their own items to that set by declaring a `mod-data` prototype in the data stage. `fuel_value` is fixed in the data stage, so a runtime `remote` interface cannot do this.
+A mod that adds its own wooden item can set `fuel_value` on it directly; it does not need Wood Still Burns. This page is for the other case: an item from a mod that does not make it burn, which you want to make burnable with a separate adapter mod.
+
+The adapter registers the item name, and Wood Still Burns derives the fuel value from the item's recipe. Registration is a `mod-data` prototype declared in the data stage. `fuel_value` is fixed in the data stage, so a runtime `remote` interface cannot do this.
 
 ## Registration
 
-Example: a mod that makes Krastorio 2's basic tech card burnable.
+Example: an adapter mod that makes Krastorio 2's basic tech card burnable. It depends on Krastorio 2.
 
 ```lua
 data:extend({
   {
     type = "mod-data",
-    name = "my-mod-wood-still-burns",
+    name = "my-adapter-wood-still-burns",
     data_type = "wood-still-burns.items",
     data = { items = { "kr-basic-tech-card" } },
   },
 })
 ```
 
-- `name` only has to be unique; use your mod's name.
+- `name` only has to be unique; use your adapter's name.
 - `data.items` is an array of item names. Any item-derived prototype type works (`item`, `tool`, `ammo`, ...).
-- Without Wood Still Burns the prototype does nothing, so no dependency is required.
+- Without Wood Still Burns the prototype does nothing, so the adapter does not need to depend on it.
 
 ## How the value is derived
 

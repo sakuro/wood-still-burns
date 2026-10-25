@@ -10,7 +10,7 @@ The values are calculated from the recipes and from wood's fuel value rather tha
 
 The energy recovery rate is a startup setting (0 to 1, default 0.75); at 0 no fuel value is set. At the default rate a wooden chest burns for 3MJ and a small electric pole for 0.75MJ, the same values as WoodDoesBurn.
 
-Other mods can register their own wooden items; see [EXTENDING.md](https://github.com/sakuro/wood-still-burns/blob/main/EXTENDING.md).
+To make wooden items from other mods burn, write a small adapter mod that registers them; see [EXTENDING.md](https://github.com/sakuro/wood-still-burns/blob/main/EXTENDING.md).
 
 ## Related mods
 
