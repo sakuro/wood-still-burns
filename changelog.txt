@@ -1,4 +1,8 @@
 ---------------------------------------------------------------------------------------------------
+Version: Unreleased
+  Features:
+    - Other mods can register wooden items through a mod-data prototype; see EXTENDING.md
+---------------------------------------------------------------------------------------------------
 Version: 0.5.0
 Date: 2026-10-25
   Features:
