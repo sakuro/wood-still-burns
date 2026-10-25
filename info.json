@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "title": "Wood Still Burns",
   "author": "sakuro",
-  "description": "Wood Still Burns",
+  "description": "Gives wooden chests and small electric poles a fuel value derived from the wood in their recipes.",
   "factorio_version": "2.1",
   "dependencies": [
-    "base >= 2.1"
+    "base >= 2.1",
+    "! WoodDoesBurn"
   ]
 }
