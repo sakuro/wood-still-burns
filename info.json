@@ -1,6 +1,6 @@
 {
   "name": "wood-still-burns",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "title": "Wood Still Burns",
   "author": "sakuro",
   "description": "Gives wooden chests and small electric poles a fuel value derived from the wood in their recipes.",
