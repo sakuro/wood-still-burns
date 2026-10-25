@@ -6,7 +6,7 @@ The adapter registers the item name, and Wood Still Burns derives the fuel value
 
 ## Registration
 
-Example: an adapter mod that makes Krastorio 2's basic tech card burnable. It depends on Krastorio 2.
+Example: an adapter mod that makes Krastorio 2's basic tech card burnable. It depends on Krastorio 2 and Wood Still Burns.
 
 ```lua
 data:extend({
@@ -21,7 +21,7 @@ data:extend({
 
 - `name` only has to be unique; use your adapter's name.
 - `data.items` is an array of item names. Any item-derived prototype type works (`item`, `tool`, `ammo`, ...).
-- Without Wood Still Burns the prototype does nothing, so the adapter does not need to depend on it.
+- Without Wood Still Burns the prototype does nothing, so the adapter should depend on it; load order does not matter because registrations are read at `data-final-fixes`.
 
 ## How the value is derived
 
