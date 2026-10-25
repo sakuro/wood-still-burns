@@ -10,6 +10,8 @@ The values are calculated from the recipes and from wood's fuel value rather tha
 
 The energy recovery rate is a startup setting (0 to 1, default 0.75); at 0 no fuel value is set. At the default rate a wooden chest burns for 3MJ and a small electric pole for 0.75MJ, the same values as WoodDoesBurn.
 
+Other mods can register their own wooden items; see [EXTENDING.md](EXTENDING.md).
+
 ## Related mods
 
 - [WoodDoesBurn](https://mods.factorio.com/mod/WoodDoesBurn) by Valandir: the original implementation of this idea. It sets fixed fuel values (3MJ for a wooden chest, 0.75MJ for a small electric pole).
