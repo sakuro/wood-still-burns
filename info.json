@@ -1,0 +1,11 @@
+{
+  "name": "wood-still-burns",
+  "version": "0.0.1",
+  "title": "Wood Still Burns",
+  "author": "sakuro",
+  "description": "Wood Still Burns",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1"
+  ]
+}
