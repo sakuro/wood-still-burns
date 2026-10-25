@@ -25,7 +25,9 @@ data:extend({
 
 The fuel value is calculated at `data-final-fixes` from the item's own recipe (wood used / items crafted) and wood's fuel value, as described in the README. Changes other mods make to wood or to the recipe are followed. For example, Krastorio 2 lowers wood to 1.25MJ, and its `kr-basic-tech-card` (5 wood and 5 copper cable make 5 cards) then burns for about 0.94MJ at the default recovery rate.
 
-An item is skipped, with a log entry, when it does not exist, when no recipe has the item's name, when that recipe has no wood ingredient, or when the recipe's result is variable or probabilistic. Malformed registrations are logged and ignored.
+An item that already has a fuel value, set by the base game or another mod, is left as it is: registering it does not override that value, and it is not recalculated from wood. A value of `0J` counts as unset. Krastorio 2, for example, sets its own values for the wooden chest and small electric pole, so those are kept.
+
+An item is also skipped, with a log entry, when it does not exist, when no recipe has the item's name, when that recipe has no wood ingredient, or when the recipe's result is variable or probabilistic. Malformed registrations are logged and ignored.
 
 ## Items that are not mainly wood
 
