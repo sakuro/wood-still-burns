@@ -16,4 +16,4 @@ To make wooden items from other mods burn, write a small adapter mod that regist
 
 ## Related mods
 
-- [WoodDoesBurn](https://mods.factorio.com/mod/WoodDoesBurn) by Valandir: the original implementation of this idea. Since 4.2.0 it derives the fuel values from the recipes in the same way as this mod and uses the same registration format as this mod (see [EXTENDING.md](https://github.com/sakuro/wood-still-burns/blob/main/EXTENDING.md)). The two mods are incompatible. Unlike this mod, it uses its own fuel category, so only stationary burners accept the items.
+- [WoodDoesBurn](https://mods.factorio.com/mod/WoodDoesBurn) by Valandir: the original implementation of this idea. Since 4.2.0 it derives the fuel values from the recipes in the same way as this mod and uses the same registration format as this mod (see [EXTENDING.md](https://github.com/sakuro/wood-still-burns/blob/main/EXTENDING.md)). The two mods are incompatible. Unlike this mod, it uses its own fuel category, so vehicles and burner inserters do not accept the items.
