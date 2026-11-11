@@ -1,6 +1,6 @@
 # Writing an adapter mod
 
-A mod that adds its own wooden item can set `fuel_value` on it directly; it does not need Wood Still Burns. This page is for the other case: an item from a mod that does not make it burn, which you want to make burnable with a separate adapter mod.
+This page describes how to make an item from a mod that does not make it burn burnable, using a separate adapter mod.
 
 The adapter registers the item name, and Wood Still Burns derives the fuel value from the item's recipe. Registration is a `mod-data` prototype declared in the data stage. `fuel_value` is fixed in the data stage, so a runtime `remote` interface cannot do this.
 
