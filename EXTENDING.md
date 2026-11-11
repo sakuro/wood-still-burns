@@ -30,11 +30,11 @@ The adapter depends on the mod that provides the item and on Wood Still Burns:
 "dependencies": [
   "base >= 2.1",
   "Krastorio2",
-  "~ wood-still-burns"
+  "~ wood-still-burns >= 0.6.0"
 ]
 ```
 
-Without Wood Still Burns the prototype does nothing, so the dependency is needed. `~` makes it a required dependency that does not affect load order, and load order does not matter here because registrations are read at `data-final-fixes`.
+Without Wood Still Burns the prototype does nothing, so the dependency is needed. Registration is supported from 0.6.0. `~` makes it a required dependency that does not affect load order, and load order does not matter here because registrations are read at `data-final-fixes`.
 
 ## How the value is derived
 
