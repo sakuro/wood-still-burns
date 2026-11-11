@@ -2,7 +2,7 @@
 
 This page describes how to make an item from a mod that does not make it burn burnable, using a separate adapter mod.
 
-The adapter registers the item name, and Wood Still Burns derives the fuel value from the item's recipe. Registration is a `mod-data` prototype declared in the data stage. `fuel_value` is fixed in the data stage, so a runtime `remote` interface cannot do this.
+The adapter registers the item name, and Wood Still Burns derives the fuel value from the item's recipe. Registration is a `mod-data` prototype declared in the data stage.[^data-stage]
 
 ## Registration
 
@@ -34,3 +34,5 @@ An item is also skipped, with a log entry, when it does not exist, when no recip
 ## Items that are not mainly wood
 
 Only the wood in the recipe counts, whatever else it contains. The base game's `shotgun` (a `gun`; 5 wood among iron, gears and copper) can be registered and then burns for 7.5MJ at the default rate. This is not recommended: wood is not its main material, and the value says nothing about the rest.
+
+[^data-stage]: `fuel_value` is fixed in the data stage, so a runtime `remote` interface cannot do this.
