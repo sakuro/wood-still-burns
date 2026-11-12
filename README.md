@@ -2,7 +2,7 @@
 
 [![Downloads](https://img.shields.io/badge/dynamic/json.svg?label=Downloads&url=https%3A%2F%2Fmods.factorio.com%2Fapi%2Fmods%2Fwood-still-burns&query=%24.downloads_count)](https://mods.factorio.com/mod/wood-still-burns)
 
-> **Note:** [WoodDoesBurn](https://mods.factorio.com/mod/WoodDoesBurn) 4.2.0 has adopted the mechanism of this mod, and the two mods do the same job. They are incompatible; use only one of them.
+> **Note:** [WoodDoesBurn](https://mods.factorio.com/mod/WoodDoesBurn) 4.2.0 has adopted the mechanism of this mod, and the two mods do the same job. They cannot be used together; use only one of them.
 
 Gives wooden chests and small electric poles a fuel value, derived from the wood in their recipes:
 
@@ -16,4 +16,4 @@ To make wooden items from other mods burn, write a small adapter mod that regist
 
 ## Related mods
 
-- [WoodDoesBurn](https://mods.factorio.com/mod/WoodDoesBurn) by Valandir: the original implementation of this idea. Since 4.2.0 it derives the fuel values from the recipes in the same way as this mod and uses the same registration format as this mod (see [EXTENDING.md](https://github.com/sakuro/wood-still-burns/blob/main/EXTENDING.md)). The two mods are incompatible. Unlike this mod, it uses its own fuel category, so vehicles and burner inserters do not accept the items.
+- [WoodDoesBurn](https://mods.factorio.com/mod/WoodDoesBurn) by Valandir: the original implementation of this idea. Since 4.2.0 it derives the fuel values from the recipes in the same way as this mod and uses the same registration format as this mod (see [EXTENDING.md](https://github.com/sakuro/wood-still-burns/blob/main/EXTENDING.md)). The two mods cannot be used together. Unlike this mod, it uses its own fuel category, so vehicles and burner inserters do not accept the items.
